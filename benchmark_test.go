@@ -54,7 +54,7 @@ func genArray(len int, data string) []string {
 }
 
 func BenchmarkIterate(b *testing.B) {
-	iterProg, err := compile("l.all(x, true)", []cel.EnvOption{
+	iterProg, err := compile("l.all(x, x == 'golang')", []cel.EnvOption{
 		cel.Declarations(decls.NewVar("l", decls.NewListType(decls.String))),
 	})
 	if err != nil {
